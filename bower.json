@@ -1,0 +1,20 @@
+{
+  "name": "helpers",
+  "description": "Javascript helpers",
+  "main": "index.js",
+  "authors": [
+    "elisiondesign"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "frontend",
+    "ubytko_becva"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
