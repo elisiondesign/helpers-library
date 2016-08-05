@@ -1,12 +1,15 @@
-function addClass(element, className) {
-    if (!element) {
+function addClass(element, newClass) {
+    if (typeof element == 'undefined') {
         return;
+    } else if (!element.className) {
+        element.className = newClass;
+    } else {
+        element.className = element.className.replace(/\s+$/gi, '') + ' ' + newClass;
     }
-    element.className = element.className.replace(/\s+$/gi, '') + ' ' + className;
 }
 
 function removeClass(element, className) {
-    if (!element) {
+    if (typeof element == 'undefined') {
         return;
     }
     element.className = element.className.replace(className, '');
