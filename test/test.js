@@ -87,3 +87,25 @@ describe('toggleClass',function () {
        assert.equal(element.className, 'test-class');
     });
 });
+
+describe('MQwidth',function () {
+    it('should return true if screen width falls within the min-width defined by css media queries', function () {
+      var minWidth =  200;
+      
+      assert.equal(MQwidth(minWidth), window.matchMedia('(min-width: ' + minWidth + 'px)').matches);
+    });
+
+    it('should return true if screen width falls within the max-width defined by css media queries', function () {
+      var maxWidth =  200;
+
+      assert.equal(MQwidth(null, maxWidth), window.matchMedia('(max-width: ' + maxWidth + 'px)').matches);
+    });
+
+    it('should return true if screen width falls within the min-width and max-width defined by css media queries', function () {
+      var minWidth =  200;
+      var maxWidth =  2000;
+
+      assert.equal(MQwidth(minWidth, 2000), (window.matchMedia('(min-width: ' + minWidth + 'px)').matches) && window.matchMedia('(max-width: ' + maxWidth + 'px)').matches);
+    });
+
+});

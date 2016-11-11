@@ -86,3 +86,24 @@ function addEvent(object, event, callback) {
         object["on" + event] = callback;
     }
 }
+
+// to compare only with max width, send MQwidth(null, 'number');
+function MQwidth(min, max = null){
+    if (min !== null){
+       var minimum = window.matchMedia('(min-width: ' + min + 'px)');
+    }
+
+    if (max !== null){
+       var maximum = window.matchMedia('(max-width: ' + max + 'px)');
+    }
+
+   if (min !== null && max !== null){
+        return (minimum.matches && maximum.matches);
+    } else if (min !== null){
+        return minimum.matches;
+    } else if (max !== null){
+        return maximum.matches;
+    } else {
+        return;
+    }
+}
