@@ -3,6 +3,8 @@ function addClass(element, newClass) {
         return;
     } else if (!element.className) {
         element.className = newClass;
+    } else if ((' ' + element.className + ' ').indexOf(' ' + newClass + ' ') > -1){
+        return;
     } else {
         element.className = element.className.replace(/\s+$/gi, '') + ' ' + newClass;
     }
@@ -15,26 +17,37 @@ function removeClass(element, className) {
     element.className = element.className.replace(className, '');
 }
 
+function SVGaddClass (element, newClass){
+    if (typeof element == 'undefined'){
+        return;
+    } else if (element.getAttribute('class') == null){
+        element.setAttribute('class', newClass);
+    } else if (hasClass(element, newClass)){
+        return;
+    } else {
+        element.setAttribute('class', element.getAttribute('class') + ' ' + newClass);
+    }
+}
+
+function hasClass (element, className){
+    return new RegExp('(\\s|^)' + className + '(\\s|$)').test(element.getAttribute('class'));
+}
+
 function getElementIndex(element, parentElement) {
     var index = Array.prototype.indexOf.call(parentElement.children, element);
     return index;
 }
 
 function toggleClass(element, className) {
-    var visible = document.querySelector('.' + className);
-    if (visible !== null) {
+    var visible = element.classList.contains(className);
+
+    if (visible) {
         element.classList.remove(className);
     } else {
         element.classList.add(className);
     }
 }
 
-function hasClass(element, className) {
-    if (element.classList.contains(className)) {
-        return true;
-    }
-    return false;
-}
 
 function makeRequest(url, callback) {
 
