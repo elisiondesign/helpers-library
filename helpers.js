@@ -1,23 +1,4 @@
-function addClass(element, newClass) {
-    if (typeof element == 'undefined') {
-        return;
-    } else if (!element.className) {
-        element.className = newClass;
-    } else if ((' ' + element.className + ' ').indexOf(' ' + newClass + ' ') > -1){
-        return;
-    } else {
-        element.className = element.className.replace(/\s+$/gi, '') + ' ' + newClass;
-    }
-}
-
-function removeClass(element, className) {
-    if (typeof element == 'undefined') {
-        return;
-    }
-    element.className = element.className.replace(className, '');
-}
-
-function SVGaddClass (element, newClass){
+function addClass (element, newClass){
     if (typeof element == 'undefined'){
         return;
     } else if (element.getAttribute('class') == null){
@@ -27,6 +8,14 @@ function SVGaddClass (element, newClass){
     } else {
         element.setAttribute('class', element.getAttribute('class') + ' ' + newClass);
     }
+}
+
+function removeClass (element, className){
+    var newState = element.getAttribute('class').replace(new RegExp('(\\s|^)' + className + '(\\s|$)', 'g'), '$2');
+        if (typeof element == 'undefined') {
+        return;
+    }
+    element.setAttribute('class', newState);
 }
 
 function hasClass (element, className){
@@ -42,9 +31,9 @@ function toggleClass(element, className) {
     var visible = element.classList.contains(className);
 
     if (visible) {
-        element.classList.remove(className);
+        removeClass(element, className);
     } else {
-        element.classList.add(className);
+        addClass(element, className);
     }
 }
 
