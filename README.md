@@ -1,9 +1,9 @@
-https://travis-ci.org/elisiondesign/helpers-library.svg?branch=master
+![build status](https://travis-ci.org/elisiondesign/helpers-library.svg?branch=master)
 
 setup:
 
 `npm install`
 
-test
+test:
 
 `mocha`
