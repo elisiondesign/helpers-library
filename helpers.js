@@ -103,7 +103,7 @@ function addEvent(object, event, callback) {
 
 // determine window width the same way CSS @media does
 
-function MQwidth(min, max = null){
+function mqWidth(min, max = null){
     // to compare only with max width, send MQwidth(null, 'number');
 
     // set if minimum width is given
@@ -135,4 +135,16 @@ function MQwidth(min, max = null){
     else {
         return;
     }
+}
+
+//export for easier testing with mocha
+if (typeof module !== 'undefined' && module.exports != null) {
+    exports.addClass = addClass;
+    exports.removeClass = removeClass;
+    exports.hasClass = hasClass;
+    exports.toggleClass = toggleClass;
+    exports.makeRequest = makeRequest;
+    exports.parseSafeJSON = parseSafeJSON;
+    exports.addEvent = addEvent;
+    exports.mqWidth = mqWidth;
 }
