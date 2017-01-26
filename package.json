@@ -1,0 +1,13 @@
+{
+  "name": "helpers-library",
+  "version": "0.1.1",
+  "description": "Collection of javascript functions often used on websites",
+  "main": "index.js",
+  "repository": "https://github.com/honzabilek4/helpers-library.git",
+  "author": "elisiondesign <info@elisiondesign.cz>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
