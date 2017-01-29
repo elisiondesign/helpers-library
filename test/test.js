@@ -97,26 +97,41 @@ describe('toggleClass', function () {
     });
 });
 
-//TODO: figure out how to test window.matchMedia function
+describe('getStyle', function () {
+    it('should get current style of element', function () {
+        var element = document.createElement('p');
+        element.style.display = 'block';
 
-// describe('mqWidth', function () {
-//     it('should return true if screen width falls within the min-width defined by css media queries', function () {
-//         var minWidth = 200;
+        helpers.getStyle(element, 'block');
+        assert.equal(element.style.display, 'block');
+    });
 
-//         assert.equal(mqWidth(minWidth), window.matchMedia('(min-width: ' + minWidth + 'px)').matches);
-//     });
+});
 
-//     it('should return true if screen width falls within the max-width defined by css media queries', function () {
-//         var maxWidth = 200;
+// describe('isNodeList', function () {
+//     it('should return true if object is a Node List', function () {
+//         var element = document.createElement('p');
+//         element.classList.add('test-class');
+//         var nodeList = document.querySelectorAll['.test-class'];
 
-//         assert.equal(mqWidth(null, maxWidth), window.matchMedia('(max-width: ' + maxWidth + 'px)').matches);
-//     });
-
-//     it('should return true if screen width falls within the min-width and max-width defined by css media queries', function () {
-//         var minWidth = 200;
-//         var maxWidth = 2000;
-
-//         assert.equal(mqWidth(minWidth, 2000), (window.matchMedia('(min-width: ' + minWidth + 'px)').matches) && window.matchMedia('(max-width: ' + maxWidth + 'px)').matches);
+//         helpers.isNodeList(nodeList);
+//         assert.equal(helpers.isNodeList(nodeList), true);
 //     });
 
 // });
+
+describe('isArray', function () {
+    it('should return true if object is an array', function () {
+        var element = [1, 2];
+
+        helpers.isArray(element);
+        assert.equal(helpers.isArray(element), true);
+    });
+    it('should return false if object is not an array', function () {
+        var element = 1;
+
+        helpers.isArray(element);
+        assert.equal(helpers.isArray(element), false);
+    });
+
+});

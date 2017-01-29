@@ -62,6 +62,39 @@ function toggleClass(element, className) {
     }
 }
 
+// get current property of given element
+function getStyle(element, property) {
+    // get the actual displayed style (may differ from css initial setting)
+    var getComputedStyle = window.getComputedStyle;
+
+    if(element && property){
+        // currentStyle is for IE
+        return ( getComputedStyle ? getComputedStyle(element) : element.currentStyle )[
+            // transforms css property into camel sized javascript version
+            property.replace(/-(\w)/gi, function (word, letter) {
+                return letter.toUpperCase();   
+            })
+        ];        
+    }
+
+    return;
+}
+
+// check if element belongs to a node list (querySelectorAll for instance)
+function isNodeList(element){
+    return NodeList.prototype.isPrototypeOf(element)
+}
+
+
+function isArray(element){
+    // older browsers don't support isArray method
+    if (!Array.isArray) {
+        return Object.prototype.toString.call(element) === '[object Array]';
+    } else {
+        return Array.isArray(element);
+    }
+}
+
 
 function makeRequest(url, callback) {
 
@@ -103,40 +136,6 @@ function addEvent(object, event, callback) {
 
 // determine window width the same way CSS @media does
 
-function mqWidth(min, max = null){
-    // to compare only with max width, send MQwidth(null, 'number');
-
-    // set if minimum width is given
-    if (min !== null){
-       var minimum = window.matchMedia('(min-width: ' + min + 'px)');
-    }
-
-    // set if maxium width is given
-    if (max !== null){
-       var maximum = window.matchMedia('(max-width: ' + max + 'px)');
-    }
-
-    // check if both min and max widths are met by current window size
-   if (min !== null && max !== null){
-        return (minimum.matches && maximum.matches);
-    } 
-
-    // check if maximum width is met
-    else if (min !== null){
-        return minimum.matches;
-    } 
-
-    // check if minimum width is met
-    else if (max !== null){
-        return maximum.matches;
-    } 
-
-    // prevent unforseen errors
-    else {
-        return;
-    }
-}
-
 //export for easier testing with mocha
 if (typeof module !== 'undefined' && module.exports != null) {
     exports.addClass = addClass;
@@ -146,5 +145,7 @@ if (typeof module !== 'undefined' && module.exports != null) {
     exports.makeRequest = makeRequest;
     exports.parseSafeJSON = parseSafeJSON;
     exports.addEvent = addEvent;
-    exports.mqWidth = mqWidth;
+    exports.getStyle = getStyle;
+    exports.isArray = isArray;
+    exports.isNodeList = isNodeList;
 }
