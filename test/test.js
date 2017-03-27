@@ -85,6 +85,7 @@ describe('hasClass', function () {
         var element = document.createElement('p');
         var res = helpers.hasClass(element, 'test-class');
         assert.equal(res, false);
+    });
 });
 
 describe('toggleClass', function () {
@@ -138,6 +139,22 @@ describe('isArray', function () {
 
         helpers.isArray(element);
         assert.equal(helpers.isArray(element), false);
+    });
+
+});
+
+describe('debounce', function () {
+    it('should get current limit how often a function may initiate', function () {
+        var counter = 1;
+        var dynamicFunction = setInterval(helpers.debounce(function(counter){
+            return counter++;
+        }, 10), 100);
+
+        setTimeout(function(){
+            clearInterval(dynamicFunction);
+            assert.equal(counter, 2);
+        }, 200);
+
     });
 
 });

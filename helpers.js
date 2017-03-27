@@ -88,7 +88,7 @@ function isNodeList(element){
     return NodeList.prototype.isPrototypeOf(element)
 }
 
-
+// Check if element is an Array
 function isArray(element){
     // older browsers don't support isArray method
     if (!Array.isArray) {
@@ -97,6 +97,25 @@ function isArray(element){
         return Array.isArray(element);
     }
 }
+
+
+// debounce multiple events
+// if immediate is passed, trigger the function on the leading edge instead of trailer
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
+
 
 
 function makeRequest(url, callback) {
@@ -151,4 +170,5 @@ if (typeof module !== 'undefined' && module.exports != null) {
     exports.getStyle = getStyle;
     exports.isArray = isArray;
     exports.isNodeList = isNodeList;
+    exports.debounce = debounce;
 }
