@@ -1,5 +1,6 @@
 var chai = require('chai');
 var assert = chai.assert;
+var expect = chai.expect;
 var jsdom = require('mocha-jsdom');
 var helpers = require('../helpers.js');
 
@@ -63,6 +64,12 @@ describe('removeClass', function () {
 
         helpers.removeClass(element, 'test-class');
         assert.equal(element.getAttribute('class'), '');
+    });
+    it('should handle an element without class tag declared', function () {
+        var element = document.createElement('p');
+
+        helpers.removeClass(element, 'test-class');
+        expect(element.getAttribute('class')).to.be.null;
     });
 });
 

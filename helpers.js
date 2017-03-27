@@ -23,7 +23,7 @@ function addClass (element, newClass){
 
 function removeClass (element, className){
     // Check if element exists, exit if not
-    if (!element) {
+    if (!element || element.getAttribute('class') === null) {
         return;
     }
 
