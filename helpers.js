@@ -38,6 +38,9 @@ function hasClass (element, className){
 
     // test if the element has contains given class
     // return TRUE if yes
+    if(!element){
+        return false;
+    }
     return new RegExp('(\\s|^)' + className + '(\\s|$)').test(element.getAttribute('class'));
 }
 

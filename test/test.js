@@ -55,7 +55,7 @@ describe('removeClass', function () {
         var element = document.createElement('p');
         element.classList.add('test-class');
 
-       helpers.removeClass(element, 'test-class');
+        helpers.removeClass(element, 'test-class');
         assert.equal(element.className, '');
     });
     it('should remove svg class from element', function () {
@@ -85,7 +85,6 @@ describe('hasClass', function () {
         var element = document.createElement('p');
         var res = helpers.hasClass(element, 'test-class');
         assert.equal(res, false);
-    });
 });
 
 describe('toggleClass', function () {
