@@ -17,6 +17,7 @@
     "karma-chrome-launcher": "*",
     "karma-firefox-launcher": "^1.0.1",
     "karma-ie-launcher": "^1.0.0",
+    "karma-phantomjs-launcher": "*",
     "karma-mocha": "*",
     "mocha": "*"
   }
