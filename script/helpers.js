@@ -135,6 +135,22 @@ function makeRequest(url, callback) {
     httpRequest.send();
 }
 
+function makePostRequest(url,data,callback){
+    var httpRequest = new XMLHttpRequest();
+    if (!httpRequest) {
+        return false;
+    }
+
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            callback(httpRequest.responseText);
+        }
+    };
+
+    httpRequest.open('POST', url);
+    httpRequest.send(data);
+}
+
 function parseSafeJSON(data) {
     var jsonString = data.replace(")]}',", "");
     return JSON.parse(jsonString);
