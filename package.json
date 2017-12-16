@@ -1,12 +1,17 @@
 {
   "name": "elision-helpers",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Small collection of handy javascript functions.",
   "main": "src/helpers.js",
   "repository": "https://github.com/elisiondesign/helpers-library.git",
   "author": "elisiondesign <info@elisiondesign.cz>",
   "license": "MIT",
-  "keywords": ["elision", "helpers", "collection", "functions"],
+  "keywords": [
+    "elision",
+    "helpers",
+    "collection",
+    "functions"
+  ],
   "scripts": {
     "test": "karma start karma.conf.js --single-run",
     "test-watch": "karma start karma.conf.js"
