@@ -6,7 +6,7 @@ setup:
 
 test:
 
-`mocha`
+`npm test`
 
 ### Available functions
 
