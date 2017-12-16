@@ -1,4 +1,4 @@
-![build status](https://travis-ci.org/elisiondesign/helpers-library.svg?branch=master)
+[![Build Status](https://travis-ci.org/elisiondesign/helpers-library.svg?branch=master)](https://travis-ci.org/elisiondesign/helpers-library)
 
 setup:
 
