@@ -175,7 +175,7 @@ function addEvent(object, event, callback) {
 // determine window width the same way CSS @media does
 
 //export for easier testing with mocha
-if (typeof module !== 'undefined' && module.exports != null) {
+if (typeof module !== 'undefined' && typeof module.exports !== "undefined") {
     exports.addClass = addClass;
     exports.removeClass = removeClass;
     exports.hasClass = hasClass;
