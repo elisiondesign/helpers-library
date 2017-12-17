@@ -1,6 +1,6 @@
 {
   "name": "elision-helpers",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Small collection of handy javascript functions.",
   "main": "src/helpers.js",
   "repository": "https://github.com/elisiondesign/helpers-library.git",
