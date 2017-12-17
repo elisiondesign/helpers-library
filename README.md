@@ -1,13 +1,5 @@
 [![Build Status](https://travis-ci.org/elisiondesign/helpers-library.svg?branch=master)](https://travis-ci.org/elisiondesign/helpers-library)
 
-setup:
-
-`npm install`
-
-test:
-
-`npm test`
-
 ### Available functions
 
 `addClass(element, className)`
